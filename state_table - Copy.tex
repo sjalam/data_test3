@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{S.J.Alam}
+\title{Introduction to Latex}
+
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{geometry}
+
+
+\newcommand{\ignore}[1]{}
+\begin{document}
+
+
+\begin{table}[htbp]\centering
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{1}{cc}}
+\hline\hline
+                            State  &       percapita\_hh\_cons\\
+\hline
+Jammy and Kashmir             &               890.7516\\
+Himachal                      &               980.1935\\
+Punjab                        &              1026.382\\
+Chandigarh                    &                1985.06\\
+Uttranchal                    &               803.3392\\
+Haryana                       &               1071.821\\
+Delhi                         &               1555.863\\
+Rajasthan                     &               741.6093\\
+Uttar Pradesh                 &               637.7809\\
+Bihar                         &              506.1863\\
+Sikkim                        &              929.9158\\
+Arunachal Pradesh             &              840.9483\\
+Nagaland                      &              1225.088\\
+Manipur                       &              679.9393\\
+Mizoram                       &               33148.6\\
+Tripura                       &              594.7632\\
+Meghalaya                     &              828.5784\\
+Assam                         &              643.6359\\
+West Bengal                   &              755.6675\\
+Jharkhand                     &              569.5116\\
+Orissa                        &              482.9393\\
+Chhattisgarh                  &              565.1869\\
+Madhyapradesh                 &              599.2967\\
+Gujrat                        &              917.1334\\
+Daman and Diu                 &              1393.579\\
+Dadra and Nagar Haveli        &              764.1129\\
+Maharashtra                   &              933.3384\\
+Andhra Pardesh                &               749.192\\
+Karnataka                     &              823.6786\\
+Goa                           &              1081.882\\
+Lakshadweep                   &              1220.441\\
+Kerala                        &               1125.04\\
+Tamil Nadu                    &              843.3599\\
+Pondicheri                    &              1070.189\\
+Andaman and Nicobar Island    &              1360.255\\
+\hline\hline
+\end{tabular}
+}
+
+\end{table}
+
+
+\begin{table}[htbp]\centering
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{1}{c}}
+\hline\hline
+Deciles &        mean\\
+\hline
+1                             &    271.5708\\
+2                             &    360.3074\\
+3                             &    420.6985\\
+4                             &    478.5819\\
+5                             &    539.7689\\
+6                             &    610.1359\\
+7                             &    701.3643\\
+8                             &    837.6784\\
+9                             &    1088.603\\
+10                            &     2251.09\\
+\hline
+Total                         &    755.9799\\
+\hline\hline
+\end{tabular}
+}
+
+\end{table}
+
+\end{document}

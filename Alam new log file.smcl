@@ -1,0 +1,852 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\HP\Desktop\Stata Pract\Tanu test\Alam new log file.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 5 Dec 2023, 20:56:00
+
+{com}. do "C:\Users\HP\Desktop\Stata Pract\Tanu test\Alam do file.do"
+{txt}
+{com}. ********************************************************************************
+. *     Stata Excercise   
+. *         ISI Delhi 
+. *         Written by: SK Jane Alam 
+. *     Date : 29-11-2023                                                                                                                         
+. ********************************************************************************
+. 
+. *stata version 14.1
+. 
+. 
+. clear all
+{txt}
+{com}. set more off 
+{txt}
+{com}. eststo clear 
+{txt}
+{com}. matrix drop _all 
+{txt}
+{com}. 
+. 
+. 
+. * Setting up the path 
+. global nss "C:\Users\HP\Desktop\Stata Pract\Tanu test\NSS DATA\data"
+{txt}
+{com}. 
+. 
+. * Loading the HH level data
+. use "$nss/level01.dta" , clear 
+{txt}
+{com}. 
+. 
+. *********************************Q-1********************************************
+. 
+. 
+. /*
+> Labelling States as there is no state code available only state region codes were 
+> available so, with state region variable I have tried to make a new variable 
+> called state but later after searching in google I get to could make state 
+> variabel by just looking infix to detache from state region variable.
+> */
+. clonevar state_region_clone = state_region 
+{txt}
+{com}.  
+. 
+. destring state_region_clone, replace 
+{txt}state_region_clone has all characters numeric; {res}replaced {txt}as {res}int
+{txt}
+{com}. 
+. gen state = 28 if state_region_clone >= 281 & state_region_clone <= 284
+{txt}(116,252 missing values generated)
+
+{com}. replace state = 12 if state_region_clone == 121
+{txt}(2,042 real changes made)
+
+{com}. replace state = 18 if state_region_clone >= 181 & state_region_clone <= 183
+{txt}(4,249 real changes made)
+
+{com}. replace state = 10 if state_region_clone >= 101 & state_region_clone <= 102
+{txt}(5,754 real changes made)
+
+{com}. replace state = 30 if state_region_clone == 301
+{txt}(400 real changes made)
+
+{com}. replace state = 24 if state_region_clone >= 241 & state_region_clone <= 245
+{txt}(4,274 real changes made)
+
+{com}. replace state = 06 if state_region_clone >= 061 & state_region_clone <= 062
+{txt}(2,717 real changes made)
+
+{com}. replace state = 02 if state_region_clone == 021
+{txt}(2,545 real changes made)
+
+{com}. replace state = 01 if state_region_clone >= 011 & state_region_clone <= 013
+{txt}(2,772 real changes made)
+
+{com}. replace state = 29 if state_region_clone >= 291 & state_region_clone <= 294
+{txt}(5,109 real changes made)
+
+{com}. replace state = 32 if state_region_clone >= 321 & state_region_clone <= 322
+{txt}(5,248 real changes made)
+
+{com}. replace state = 23 if state_region_clone >= 231 & state_region_clone <= 236
+{txt}(5,914 real changes made)
+
+{com}. replace state = 27 if state_region_clone >= 271 & state_region_clone <= 276
+{txt}(10,031 real changes made)
+
+{com}. replace state = 14 if state_region_clone >= 141 & state_region_clone <= 142
+{txt}(3,177 real changes made)
+
+{com}. replace state = 17 if state_region_clone == 171
+{txt}(1,596 real changes made)
+
+{com}. replace state = 15 if state_region_clone == 151
+{txt}(1,913 real changes made)
+
+{com}. replace state = 13 if state_region_clone == 131
+{txt}(1,280 real changes made)
+
+{com}. replace state = 21 if state_region_clone >= 211 & state_region_clone <= 213
+{txt}(5,022 real changes made)
+
+{com}. replace state = 03 if state_region_clone >= 031 & state_region_clone <= 032
+{txt}(4,289 real changes made)
+
+{com}. replace state = 08 if state_region_clone >= 081 & state_region_clone <= 084
+{txt}(5,166 real changes made)
+
+{com}. replace state = 11 if state_region_clone == 111
+{txt}(1,120 real changes made)
+
+{com}. replace state = 33 if state_region_clone >= 331 & state_region_clone <= 334
+{txt}(8,298 real changes made)
+
+{com}. replace state = 16 if state_region_clone == 161
+{txt}(2,320 real changes made)
+
+{com}. replace state = 05 if state_region_clone == 051
+{txt}(2,214 real changes made)
+
+{com}. replace state = 09 if state_region_clone >= 091 & state_region_clone <= 094
+{txt}(11,212 real changes made)
+
+{com}. replace state = 19 if state_region_clone >= 191 & state_region_clone <= 194
+{txt}(7,877 real changes made)
+
+{com}. replace state = 35 if state_region_clone == 351
+{txt}(623 real changes made)
+
+{com}. replace state = 04 if state_region_clone == 041
+{txt}(380 real changes made)
+
+{com}. replace state = 26 if state_region_clone == 261
+{txt}(240 real changes made)
+
+{com}. replace state = 25 if state_region_clone == 251
+{txt}(160 real changes made)
+
+{com}. replace state = 07 if state_region_clone == 071
+{txt}(1,176 real changes made)
+
+{com}. replace state = 31 if state_region_clone == 311
+{txt}(199 real changes made)
+
+{com}. replace state = 34 if state_region_clone == 341
+{txt}(720 real changes made)
+
+{com}. replace state = 22 if state_region_clone == 221
+{txt}(2,798 real changes made)
+
+{com}. replace state = 20 if state_region_clone == 201
+{txt}(3,417 real changes made)
+
+{com}. 
+. * Labeling each state code with their respective name.
+. label define statelab 28 "Andhra Pardesh" 12 "Arunachal Pradesh" 18 "Assam" 10 "Bihar" 30 "Goa" ///
+>                                           24 "Gujrat" 06 "Haryana" 02 "Himachal" 01 "Jammy and Kashmir" 29 "Karnataka" ///
+>                                           32 "Kerala" 23 "Madhyapradesh" 27 "Maharashtra" 14 "Manipur" 17 "Meghalaya" ///
+>                                           15 "Mizoram" 13 "Nagaland" 21 "Orissa" 03 "Punjab" 08 "Rajasthan" 11 "Sikkim" ///
+>                                           33 "Tamil Nadu" 16 "Tripura" 09 "Uttar Pradesh" 19 "West Bengal" 35 "Andaman and Nicobar Island" ///
+>                                           04 "Chandigarh" 26 "Dadra and Nagar Haveli" 25 "Daman and Diu" 07 "Delhi" ///
+>                                           31 "Lakshadweep" 34 "Pondicheri" 22 "Chhattisgarh" ///
+>                                           20 "Jharkhand" 05 "Uttranchal", replace
+{txt}
+{com}.                                           
+. label values state statelab
+{txt}
+{com}. 
+. tab state
+
+                     {txt}state {c |}      Freq.     Percent        Cum.
+{hline 27}{c +}{hline 35}
+         Jammy and Kashmir {c |}{res}      2,772        2.22        2.22
+{txt}                  Himachal {c |}{res}      2,545        2.04        4.26
+{txt}                    Punjab {c |}{res}      4,289        3.44        7.70
+{txt}                Chandigarh {c |}{res}        380        0.30        8.01
+{txt}                Uttranchal {c |}{res}      2,214        1.78        9.79
+{txt}                   Haryana {c |}{res}      2,717        2.18       11.96
+{txt}                     Delhi {c |}{res}      1,176        0.94       12.91
+{txt}                 Rajasthan {c |}{res}      5,166        4.14       17.05
+{txt}             Uttar Pradesh {c |}{res}     11,212        8.99       26.04
+{txt}                     Bihar {c |}{res}      5,754        4.62       30.66
+{txt}                    Sikkim {c |}{res}      1,120        0.90       31.56
+{txt}         Arunachal Pradesh {c |}{res}      2,042        1.64       33.19
+{txt}                  Nagaland {c |}{res}      1,280        1.03       34.22
+{txt}                   Manipur {c |}{res}      3,177        2.55       36.77
+{txt}                   Mizoram {c |}{res}      1,913        1.53       38.30
+{txt}                   Tripura {c |}{res}      2,320        1.86       40.16
+{txt}                 Meghalaya {c |}{res}      1,596        1.28       41.44
+{txt}                     Assam {c |}{res}      4,249        3.41       44.85
+{txt}               West Bengal {c |}{res}      7,877        6.32       51.17
+{txt}                 Jharkhand {c |}{res}      3,417        2.74       53.91
+{txt}                    Orissa {c |}{res}      5,022        4.03       57.94
+{txt}              Chhattisgarh {c |}{res}      2,798        2.24       60.18
+{txt}             Madhyapradesh {c |}{res}      5,914        4.74       64.93
+{txt}                    Gujrat {c |}{res}      4,274        3.43       68.35
+{txt}             Daman and Diu {c |}{res}        160        0.13       68.48
+{txt}    Dadra and Nagar Haveli {c |}{res}        240        0.19       68.68
+{txt}               Maharashtra {c |}{res}     10,031        8.05       76.72
+{txt}            Andhra Pardesh {c |}{res}      8,428        6.76       83.48
+{txt}                 Karnataka {c |}{res}      5,109        4.10       87.58
+{txt}                       Goa {c |}{res}        400        0.32       87.90
+{txt}               Lakshadweep {c |}{res}        199        0.16       88.06
+{txt}                    Kerala {c |}{res}      5,248        4.21       92.27
+{txt}                Tamil Nadu {c |}{res}      8,298        6.66       98.92
+{txt}                Pondicheri {c |}{res}        720        0.58       99.50
+{txt}Andaman and Nicobar Island {c |}{res}        623        0.50      100.00
+{txt}{hline 27}{c +}{hline 35}
+                     Total {c |}{res}    124,680      100.00
+{txt}
+{com}. drop state_region_clone
+{txt}
+{com}. 
+. 
+. /*
+> Calculating the average monthly per capita consumption expenditure for households 
+> across the states 
+> of India?
+> */
+. 
+. destring mpce_30_days hh_size , replace 
+{txt}mpce_30_days has all characters numeric; {res}replaced {txt}as {res}long
+{txt}hh_size has all characters numeric; {res}replaced {txt}as {res}byte
+{txt}
+{com}. gen percapita_hh_cons = (mpce_30_days/hh_size)
+{txt}
+{com}. 
+. destring multiplier nss nsc, replace
+{txt}multiplier has all characters numeric; {res}replaced {txt}as {res}long
+{txt}nss has all characters numeric; {res}replaced {txt}as {res}byte
+{txt}nsc has all characters numeric; {res}replaced {txt}as {res}byte
+{txt}
+{com}. 
+. gen weight = .
+{txt}(124,680 missing values generated)
+
+{com}. replace weight = multiplier / 100 if nss == nsc
+{txt}(707 real changes made)
+
+{com}. replace weight = multiplier / 200 if nss == nsc
+{txt}(707 real changes made)
+
+{com}. replace weight = multiplier / 200 if nss != nsc
+{txt}(123,973 real changes made)
+
+{com}. 
+. * Merging with Individual level information on block 3 
+. 
+. merge 1:m common_id using "$nss/level03.dta" , nogen keep(3)
+{res}
+{txt}{col 5}Result{col 38}# of obs.
+{col 5}{hline 41}
+{col 5}not matched{col 30}{res}               0
+{txt}{col 5}matched{col 30}{res}         602,833{txt}  
+{col 5}{hline 41}
+
+{com}. 
+. /*
+>  Result                           # of obs.
+>     -----------------------------------------
+>     not matched                             0
+>     matched                           602,833  (_merge==3)
+>     -----------------------------------------
+> */
+. 
+. sort common_id
+{txt}
+{com}. 
+. preserve 
+{txt}
+{com}. 
+. /* 
+> creating state level estimates of per capita income
+> preserve 
+> */
+. 
+. collapse(mean) percapita_hh_cons[aw = weight], by(state)
+{txt}
+{com}. 
+. keep state percapita_hh_cons
+{txt}
+{com}. 
+. keep if _n < 36
+{txt}(0 observations deleted)
+
+{com}. 
+. estpost tabstat state percapita_hh_cons, by(state)
+
+{txt}Summary statistics: mean
+     for variables: state percapita_hh_cons
+  by categories of: state
+
+{space 0}{space 0}{ralign 12:state}{space 1}{c |}{space 1}{ralign 9:e(state)}{space 1}{space 1}{ralign 9:e(perca~)}{space 1}
+{space 0}{hline 13}{c   +}{hline 11}{hline 11}
+{space 0}{space 0}{ralign 12:Jammy_and_~r}{space 1}{c |}{space 1}{ralign 9:{res:{sf:        1}}}{space 1}{space 1}{ralign 9:{res:{sf: 809.3573}}}{space 1}
+{space 0}{space 0}{ralign 12:Himachal}{space 1}{c |}{space 1}{ralign 9:{res:{sf:        2}}}{space 1}{space 1}{ralign 9:{res:{sf: 834.0266}}}{space 1}
+{space 0}{space 0}{ralign 12:Punjab}{space 1}{c |}{space 1}{ralign 9:{res:{sf:        3}}}{space 1}{space 1}{ralign 9:{res:{sf:  949.952}}}{space 1}
+{space 0}{space 0}{ralign 12:Chandigarh}{space 1}{c |}{space 1}{ralign 9:{res:{sf:        4}}}{space 1}{space 1}{ralign 9:{res:{sf: 1760.213}}}{space 1}
+{space 0}{space 0}{ralign 12:Uttranchal}{space 1}{c |}{space 1}{ralign 9:{res:{sf:        5}}}{space 1}{space 1}{ralign 9:{res:{sf: 704.9595}}}{space 1}
+{space 0}{space 0}{ralign 12:Haryana}{space 1}{c |}{space 1}{ralign 9:{res:{sf:        6}}}{space 1}{space 1}{ralign 9:{res:{sf: 922.2119}}}{space 1}
+{space 0}{space 0}{ralign 12:Delhi}{space 1}{c |}{space 1}{ralign 9:{res:{sf:        7}}}{space 1}{space 1}{ralign 9:{res:{sf: 1380.658}}}{space 1}
+{space 0}{space 0}{ralign 12:Rajasthan}{space 1}{c |}{space 1}{ralign 9:{res:{sf:        8}}}{space 1}{space 1}{ralign 9:{res:{sf: 659.8301}}}{space 1}
+{space 0}{space 0}{ralign 12:Uttar_Prad~h}{space 1}{c |}{space 1}{ralign 9:{res:{sf:        9}}}{space 1}{space 1}{ralign 9:{res:{sf: 561.9468}}}{space 1}
+{space 0}{space 0}{ralign 12:Bihar}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       10}}}{space 1}{space 1}{ralign 9:{res:{sf: 456.8098}}}{space 1}
+{space 0}{space 0}{ralign 12:Sikkim}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       11}}}{space 1}{space 1}{ralign 9:{res:{sf: 795.6343}}}{space 1}
+{space 0}{space 0}{ralign 12:Arunachal_~h}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       12}}}{space 1}{space 1}{ralign 9:{res:{sf: 768.0347}}}{space 1}
+{space 0}{space 0}{ralign 12:Nagaland}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       13}}}{space 1}{space 1}{ralign 9:{res:{sf:  1159.99}}}{space 1}
+{space 0}{space 0}{ralign 12:Manipur}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       14}}}{space 1}{space 1}{ralign 9:{res:{sf: 659.5856}}}{space 1}
+{space 0}{space 0}{ralign 12:Mizoram}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       15}}}{space 1}{space 1}{ralign 9:{res:{sf: 14242.73}}}{space 1}
+{space 0}{space 0}{ralign 12:Tripura}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       16}}}{space 1}{space 1}{ralign 9:{res:{sf: 560.3647}}}{space 1}
+{space 0}{space 0}{ralign 12:Meghalaya}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       17}}}{space 1}{space 1}{ralign 9:{res:{sf: 754.0355}}}{space 1}
+{space 0}{space 0}{ralign 12:Assam}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       18}}}{space 1}{space 1}{ralign 9:{res:{sf: 595.0074}}}{space 1}
+{space 0}{space 0}{ralign 12:West_Bengal}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       19}}}{space 1}{space 1}{ralign 9:{res:{sf: 670.9763}}}{space 1}
+{space 0}{space 0}{ralign 12:Jharkhand}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       20}}}{space 1}{space 1}{ralign 9:{res:{sf: 514.6454}}}{space 1}
+{space 0}{space 0}{ralign 12:Orissa}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       21}}}{space 1}{space 1}{ralign 9:{res:{sf: 440.7295}}}{space 1}
+{space 0}{space 0}{ralign 12:Chhattisgarh}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       22}}}{space 1}{space 1}{ralign 9:{res:{sf: 515.2998}}}{space 1}
+{space 0}{space 0}{ralign 12:Madhyaprad~h}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       23}}}{space 1}{space 1}{ralign 9:{res:{sf: 535.0797}}}{space 1}
+{space 0}{space 0}{ralign 12:Gujrat}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       24}}}{space 1}{space 1}{ralign 9:{res:{sf: 801.7744}}}{space 1}
+{space 0}{space 0}{ralign 12:Daman_and_~u}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       25}}}{space 1}{space 1}{ralign 9:{res:{sf: 1056.522}}}{space 1}
+{space 0}{space 0}{ralign 12:Dadra_and_~i}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       26}}}{space 1}{space 1}{ralign 9:{res:{sf: 681.6235}}}{space 1}
+{space 0}{space 0}{ralign 12:Maharashtra}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       27}}}{space 1}{space 1}{ralign 9:{res:{sf:  810.961}}}{space 1}
+{space 0}{space 0}{ralign 12:Andhra_Par~h}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       28}}}{space 1}{space 1}{ralign 9:{res:{sf: 693.1423}}}{space 1}
+{space 0}{space 0}{ralign 12:Karnataka}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       29}}}{space 1}{space 1}{ralign 9:{res:{sf: 686.5966}}}{space 1}
+{space 0}{space 0}{ralign 12:Goa}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       30}}}{space 1}{space 1}{ralign 9:{res:{sf: 952.3882}}}{space 1}
+{space 0}{space 0}{ralign 12:Lakshadweep}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       31}}}{space 1}{space 1}{ralign 9:{res:{sf:  1102.31}}}{space 1}
+{space 0}{space 0}{ralign 12:Kerala}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       32}}}{space 1}{space 1}{ralign 9:{res:{sf: 987.7252}}}{space 1}
+{space 0}{space 0}{ralign 12:Tamil_Nadu}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       33}}}{space 1}{space 1}{ralign 9:{res:{sf: 765.9368}}}{space 1}
+{space 0}{space 0}{ralign 12:Pondicheri}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       34}}}{space 1}{space 1}{ralign 9:{res:{sf: 915.8331}}}{space 1}
+{space 0}{space 0}{ralign 12:Andaman_an~d}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       35}}}{space 1}{space 1}{ralign 9:{res:{sf: 1209.229}}}{space 1}
+{space 0}{hline 13}{c   +}{hline 11}{hline 11}
+{space 0}{space 0}{ralign 12:Total}{space 1}{c |}{space 1}{ralign 9:{res:{sf:       18}}}{space 1}{space 1}{ralign 9:{res:{sf: 1197.603}}}{space 1}
+
+{com}. 
+. esttab, cells("state percapita_hh_cons") noobs nomtitle nonumber varlabels(`e(labels)')drop(Total) varwidth(30) collab(, lhs("`:var lab state'")) tex
+{res}
+{c -(}
+\def\sym#1{c -(}\ifmmode^{c -(}#1{c )-}\else\(^{c -(}#1{c )-}\)\fi{c )-}
+\begin{c -(}tabular{c )-}{c -(}l*{c -(}1{c )-}{c -(}cc{c )-}{c )-}
+\hline\hline
+                              &       state&percapita\_hh\_cons\\
+\hline
+Jammy and Kashmir             &           1&    809.3573\\
+Himachal                      &           2&    834.0266\\
+Punjab                        &           3&     949.952\\
+Chandigarh                    &           4&    1760.213\\
+Uttranchal                    &           5&    704.9595\\
+Haryana                       &           6&    922.2119\\
+Delhi                         &           7&    1380.658\\
+Rajasthan                     &           8&    659.8301\\
+Uttar Pradesh                 &           9&    561.9468\\
+Bihar                         &          10&    456.8098\\
+Sikkim                        &          11&    795.6343\\
+Arunachal Pradesh             &          12&    768.0347\\
+Nagaland                      &          13&     1159.99\\
+Manipur                       &          14&    659.5856\\
+Mizoram                       &          15&    14242.73\\
+Tripura                       &          16&    560.3647\\
+Meghalaya                     &          17&    754.0355\\
+Assam                         &          18&    595.0074\\
+West Bengal                   &          19&    670.9763\\
+Jharkhand                     &          20&    514.6454\\
+Orissa                        &          21&    440.7295\\
+Chhattisgarh                  &          22&    515.2998\\
+Madhyapradesh                 &          23&    535.0797\\
+Gujrat                        &          24&    801.7744\\
+Daman and Diu                 &          25&    1056.522\\
+Dadra and Nagar Haveli        &          26&    681.6235\\
+Maharashtra                   &          27&     810.961\\
+Andhra Pardesh                &          28&    693.1423\\
+Karnataka                     &          29&    686.5966\\
+Goa                           &          30&    952.3882\\
+Lakshadweep                   &          31&     1102.31\\
+Kerala                        &          32&    987.7252\\
+Tamil Nadu                    &          33&    765.9368\\
+Pondicheri                    &          34&    915.8331\\
+Andaman and Nicobar Island    &          35&    1209.229\\
+\hline\hline
+\end{c -(}tabular{c )-}
+{c )-}
+{txt}
+{com}. 
+. sort percapita_hh_cons 
+{txt}
+{com}. 
+. /*
+> 
+> Mizoram, Chandigarh, Delhi and Andaman & Nicobar Island are the top four 
+> per capita household consumption states which are union territories.
+> Being a union territory might be an advantage for them with more policies by the 
+> central government.
+> Whereas Gujrat, Jammu & Kashmr, Maharashtra and Himachal are the leat four 
+> per capita household consumption states.
+> 
+> */
+. 
+. restore 
+{txt}
+{com}. 
+. 
+. 
+. **********************************Q-2*******************************************
+. 
+. 
+. 
+. * To find decile 
+. xtile decile = percapita_hh_cons, nq(10)
+{txt}
+{com}. 
+. * For each decile from 10 to 100% of 10% gap
+. forvalues i = 1/10 {c -(}
+{txt}  2{com}.         sum percapita_hh_cons if decile == `i', detail
+{txt}  3{com}. {c )-}
+
+                      {txt}percapita_hh_cons
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res} 120.2857             .2
+{txt} 5%    {res} 186.0909             .2
+{txt}10%    {res}      212             .2       {txt}Obs         {res}     60,345
+{txt}25%    {res}    248.5             .2       {txt}Sum of Wgt. {res}     60,345
+
+{txt}50%    {res} 282.6364                      {txt}Mean          {res} 272.2071
+                        {txt}Largest       Std. Dev.     {res}   46.255
+{txt}75%    {res} 307.6667          327.5
+{txt}90%    {res} 319.6667          327.5       {txt}Variance      {res} 2139.525
+{txt}95%    {res}      324          327.5       {txt}Skewness      {res}-1.488462
+{txt}99%    {res} 326.8571          327.5       {txt}Kurtosis      {res} 6.331128
+
+                      {txt}percapita_hh_cons
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}   328.25       327.5333
+{txt} 5%    {res} 331.1429       327.5333
+{txt}10%    {res}    334.5       327.5333       {txt}Obs         {res}     60,245
+{txt}25%    {res} 344.8333       327.5333       {txt}Sum of Wgt. {res}     60,245
+
+{txt}50%    {res} 361.1667                      {txt}Mean          {res} 360.6782
+                        {txt}Largest       Std. Dev.     {res} 18.55408
+{txt}75%    {res} 376.7143       392.1667
+{txt}90%    {res} 386.1111       392.1667       {txt}Variance      {res} 344.2538
+{txt}95%    {res} 389.1667       392.1667       {txt}Skewness      {res}-.0513367
+{txt}99%    {res}    391.5       392.1667       {txt}Kurtosis      {res} 1.822917
+
+                      {txt}percapita_hh_cons
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res} 392.7778       392.1818
+{txt} 5%    {res}   395.25       392.1818
+{txt}10%    {res} 398.3333       392.1818       {txt}Obs         {res}     60,312
+{txt}25%    {res}    406.5       392.1818       {txt}Sum of Wgt. {res}     60,312
+
+{txt}50%    {res}   420.75                      {txt}Mean          {res} 420.8352
+                        {txt}Largest       Std. Dev.     {res} 16.46452
+{txt}75%    {res}  434.875          449.6
+{txt}90%    {res}   443.75          449.6       {txt}Variance      {res} 271.0805
+{txt}95%    {res} 446.7143          449.6       {txt}Skewness      {res} .0171902
+{txt}99%    {res}      449          449.6       {txt}Kurtosis      {res} 1.813247
+
+                      {txt}percapita_hh_cons
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}    450.2       449.6667
+{txt} 5%    {res} 452.6364       449.6667
+{txt}10%    {res}      456       449.6667       {txt}Obs         {res}     60,232
+{txt}25%    {res}   464.75       449.6667       {txt}Sum of Wgt. {res}     60,232
+
+{txt}50%    {res}   479.25                      {txt}Mean          {res} 479.2953
+                        {txt}Largest       Std. Dev.     {res} 16.97575
+{txt}75%    {res}  494.125       508.6667
+{txt}90%    {res}   502.75       508.6667       {txt}Variance      {res} 288.1761
+{txt}95%    {res}    505.5       508.6667       {txt}Skewness      {res}-.0045516
+{txt}99%    {res}      508       508.6667       {txt}Kurtosis      {res} 1.799016
+
+                      {txt}percapita_hh_cons
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}  509.375          508.7
+{txt} 5%    {res} 511.9286          508.7
+{txt}10%    {res}   514.75          508.7       {txt}Obs         {res}     60,305
+{txt}25%    {res} 523.5833          508.7       {txt}Sum of Wgt. {res}     60,305
+
+{txt}50%    {res}    538.6                      {txt}Mean          {res}  539.456
+                        {txt}Largest       Std. Dev.     {res} 18.40568
+{txt}75%    {res}      555          572.6
+{txt}90%    {res} 565.6667          572.6       {txt}Variance      {res} 338.7691
+{txt}95%    {res}   569.25          572.6       {txt}Skewness      {res} .1003017
+{txt}99%    {res}      572          572.6       {txt}Kurtosis      {res} 1.809911
+
+                      {txt}percapita_hh_cons
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}    573.5       572.6154
+{txt} 5%    {res} 576.3333       572.6154
+{txt}10%    {res}    580.2       572.6154       {txt}Obs         {res}     60,282
+{txt}25%    {res} 591.5714       572.6154       {txt}Sum of Wgt. {res}     60,282
+
+{txt}50%    {res} 609.8333                      {txt}Mean          {res} 610.8998
+                        {txt}Largest       Std. Dev.     {res} 22.66227
+{txt}75%    {res}    630.2       651.6667
+{txt}90%    {res}      643       651.6667       {txt}Variance      {res} 513.5785
+{txt}95%    {res}    647.5       651.6667       {txt}Skewness      {res} .0828108
+{txt}99%    {res} 650.8571       651.6667       {txt}Kurtosis      {res} 1.831837
+
+                      {txt}percapita_hh_cons
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}    652.5       651.7143
+{txt} 5%    {res}    656.2       651.7143
+{txt}10%    {res}      661       651.7143       {txt}Obs         {res}     60,263
+{txt}25%    {res} 675.7143       651.7143       {txt}Sum of Wgt. {res}     60,263
+
+{txt}50%    {res} 701.3333                      {txt}Mean          {res} 702.7739
+                        {txt}Largest       Std. Dev.     {res} 31.07113
+{txt}75%    {res}    729.4       759.1667
+{txt}90%    {res}      747       759.1667       {txt}Variance      {res} 965.4153
+{txt}95%    {res}      753       759.1667       {txt}Skewness      {res} .1010075
+{txt}99%    {res}      758       759.1667       {txt}Kurtosis      {res} 1.810048
+
+                      {txt}percapita_hh_cons
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res} 760.3333          759.2
+{txt} 5%    {res}    765.7          759.2
+{txt}10%    {res} 772.6667          759.2       {txt}Obs         {res}     60,297
+{txt}25%    {res}      794          759.2       {txt}Sum of Wgt. {res}     60,297
+
+{txt}50%    {res}   832.75                      {txt}Mean          {res} 837.8305
+                        {txt}Largest       Std. Dev.     {res} 50.35048
+{txt}75%    {res} 879.7143       934.6667
+{txt}90%    {res} 911.9286       934.6667       {txt}Variance      {res} 2535.171
+{txt}95%    {res}   923.25       934.6667       {txt}Skewness      {res} .2284513
+{txt}99%    {res}    932.4       934.6667       {txt}Kurtosis      {res} 1.862401
+
+                      {txt}percapita_hh_cons
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}   937.25         934.75
+{txt} 5%    {res}    947.5         934.75
+{txt}10%    {res} 959.8333         934.75       {txt}Obs         {res}     60,272
+{txt}25%    {res} 998.8167         934.75       {txt}Sum of Wgt. {res}     60,272
+
+{txt}50%    {res} 1073.467                      {txt}Mean          {res} 1088.001
+                        {txt}Largest       Std. Dev.     {res} 102.4454
+{txt}75%    {res}  1170.25        1297.25
+{txt}90%    {res}   1242.2        1297.25       {txt}Variance      {res} 10495.05
+{txt}95%    {res} 1268.875        1297.25       {txt}Skewness      {res} .3382476
+{txt}99%    {res}   1291.5        1297.25       {txt}Kurtosis      {res} 1.946014
+
+                      {txt}percapita_hh_cons
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}   1302.2       1297.333
+{txt} 5%    {res} 1327.125       1297.333
+{txt}10%    {res} 1358.667       1297.333       {txt}Obs         {res}     60,280
+{txt}25%    {res}     1471       1297.333       {txt}Sum of Wgt. {res}     60,280
+
+{txt}50%    {res}     1732                      {txt}Mean          {res} 3768.191
+                        {txt}Largest       Std. Dev.     {res} 288001.4
+{txt}75%    {res}   2217.6         145798
+{txt}90%    {res} 3033.125         318658       {txt}Variance      {res} 8.29e+10
+{txt}95%    {res}   3761.5       5.00e+07       {txt}Skewness      {res} 173.5784
+{txt}99%    {res}   6407.5       5.00e+07       {txt}Kurtosis      {res} 30132.97
+{txt}
+{com}. 
+. 
+. cap drop _merge
+{txt}
+{com}. 
+. preserve
+{txt}
+{com}. collapse (mean) percapita_hh_cons [aw=weight] , by(decile) 
+{txt}
+{com}. estpost tabstat  percapita_hh_cons, by(decile)
+
+{txt}Summary statistics: mean
+     for variables: percapita_hh_cons
+  by categories of: decile
+
+{space 0}{space 0}{ralign 12:decile}{space 1}{c |}{space 1}{ralign 9:e(mean)}{space 1}
+{space 0}{hline 13}{c   +}{hline 11}
+{space 0}{space 0}{ralign 12:1}{space 1}{c |}{space 1}{ralign 9:{res:{sf: 271.5708}}}{space 1}
+{space 0}{space 0}{ralign 12:2}{space 1}{c |}{space 1}{ralign 9:{res:{sf: 360.3074}}}{space 1}
+{space 0}{space 0}{ralign 12:3}{space 1}{c |}{space 1}{ralign 9:{res:{sf: 420.6985}}}{space 1}
+{space 0}{space 0}{ralign 12:4}{space 1}{c |}{space 1}{ralign 9:{res:{sf: 478.5819}}}{space 1}
+{space 0}{space 0}{ralign 12:5}{space 1}{c |}{space 1}{ralign 9:{res:{sf: 539.7689}}}{space 1}
+{space 0}{space 0}{ralign 12:6}{space 1}{c |}{space 1}{ralign 9:{res:{sf: 610.1359}}}{space 1}
+{space 0}{space 0}{ralign 12:7}{space 1}{c |}{space 1}{ralign 9:{res:{sf: 701.3643}}}{space 1}
+{space 0}{space 0}{ralign 12:8}{space 1}{c |}{space 1}{ralign 9:{res:{sf: 837.6784}}}{space 1}
+{space 0}{space 0}{ralign 12:9}{space 1}{c |}{space 1}{ralign 9:{res:{sf: 1088.603}}}{space 1}
+{space 0}{space 0}{ralign 12:10}{space 1}{c |}{space 1}{ralign 9:{res:{sf:  2251.09}}}{space 1}
+{space 0}{hline 13}{c   +}{hline 11}
+{space 0}{space 0}{ralign 12:Total}{space 1}{c |}{space 1}{ralign 9:{res:{sf: 755.9799}}}{space 1}
+
+{com}. 
+. esttab, cells("mean") noobs nomtitle nonumber varlabels(`e(labels)')  varwidth(30) collab(, lhs("`:var lab decile'")) tex
+{res}
+{c -(}
+\def\sym#1{c -(}\ifmmode^{c -(}#1{c )-}\else\(^{c -(}#1{c )-}\)\fi{c )-}
+\begin{c -(}tabular{c )-}{c -(}l*{c -(}1{c )-}{c -(}c{c )-}{c )-}
+\hline\hline
+10 quantiles of percapita\_hh\_cons&        mean\\
+\hline
+1                             &    271.5708\\
+2                             &    360.3074\\
+3                             &    420.6985\\
+4                             &    478.5819\\
+5                             &    539.7689\\
+6                             &    610.1359\\
+7                             &    701.3643\\
+8                             &    837.6784\\
+9                             &    1088.603\\
+10                            &     2251.09\\
+Total                         &    755.9799\\
+\hline\hline
+\end{c -(}tabular{c )-}
+{c )-}
+{txt}
+{com}. 
+. 
+. /*
+> Summary statistics: mean
+>      for variables: percapita_hh_cons
+>   by categories of: decile
+> 
+>       decile |   e(mean) 
+> -------------+-----------
+>            1 |  271.5708 
+>            2 |  360.3074 
+>            3 |  420.6985 
+>            4 |  478.5819 
+>            5 |  539.7689 
+>            6 |  610.1359 
+>            7 |  701.3643 
+>            8 |  837.6784 
+>            9 |  1088.603 
+>           10 |   2251.09 
+> -------------+-----------
+>        Total |  755.9799 
+> 
+> */
+. ********************************Q-3*********************************************
+. 
+. 
+. restore
+{txt}
+{com}. * Merging the individual dtata
+. merge 1:1 common_id person_srl_no using "$nss/level04.dta"
+{res}
+{txt}{col 5}Result{col 38}# of obs.
+{col 5}{hline 41}
+{col 5}not matched{col 30}{res}               0
+{txt}{col 5}matched{col 30}{res}         602,833{txt}  (_merge==3)
+{col 5}{hline 41}
+
+{com}. 
+. /*
+>     Result                           # of obs.
+>     -----------------------------------------
+>     not matched                             0
+>     matched                           602,833  (_merge==3)
+>     -----------------------------------------
+> */
+. 
+. * required variables 
+. destring age sex pri_activity_status social_group, replace 
+{txt}age has all characters numeric; {res}replaced {txt}as {res}int
+{txt}sex has all characters numeric; {res}replaced {txt}as {res}byte
+{txt}(1 missing value generated)
+{res}{txt}pri_activity_status has all characters numeric; {res}replaced {txt}as {res}byte
+{txt}social_group has all characters numeric; {res}replaced {txt}as {res}byte
+{txt}(441 missing values generated)
+{res}{txt}
+{com}. 
+. * Labeling 1 as male and 2 as female as mentioned in NSS data
+. label define  sex  1 "Male" 2 "Female"
+{txt}
+{com}. label values sex sex
+{txt}
+{com}. 
+. * Putting age restriction 
+. keep if age >= 15 & age <= 59
+{txt}(239,867 observations deleted)
+
+{com}. 
+. * tabulating 
+. tab sex if pri_activity_status >= 11 & pri_activity_status <= 51
+
+        {txt}sex {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+       Male {c |}{res}    149,397       73.56       73.56
+{txt}     Female {c |}{res}     53,686       26.44      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}    203,083      100.00
+{txt}
+{com}. * Male with working group are 73.7% and female are 26.3%
+. preserve
+{txt}
+{com}. 
+. 
+. keep if pri_activity_status <= 51
+{txt}(159,883 observations deleted)
+
+{com}. ttest pri_activity_status, by(sex)
+
+{txt}Two-sample t test with equal variances
+{hline 9}{c TT}{hline 68}
+   Group{col 10}{c |}{col 16}Obs{col 27}Mean{col 35}Std. Err.{col 47}Std. Dev.{col 59}[95% Conf. Interval]
+{hline 9}{c +}{hline 68}
+    Male {c |}{res}{col 12}149,397{col 22} 25.35953{col 34} .0392126{col 46} 15.15643{col 58} 25.28267{col 70} 25.43638
+  {txt}Female {c |}{res}{col 12} 53,686{col 22} 27.55651{col 34} .0617796{col 46} 14.31448{col 58} 27.43543{col 70}  27.6776
+{txt}{hline 9}{c +}{hline 68}
+combined {c |}{res}{col 12}203,083{col 22} 25.94031{col 34} .0332185{col 46} 14.96982{col 58}  25.8752{col 70} 26.00542
+{txt}{hline 9}{c +}{hline 68}
+    diff {c |}{res}{col 22}-2.196989{col 34} .0751695{col 58}-2.344319{col 70}-2.049658
+{txt}{hline 9}{c BT}{hline 68}
+    diff = mean({res}Male{txt}) - mean({res}Female{txt})                              t = {res}-29.2271
+{txt}Ho: diff = 0                                     degrees of freedom = {res}  203081
+
+    {txt}Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = {res}0.0000         {txt}Pr(|T| > |t|) = {res}0.0000          {txt}Pr(T > t) = {res}1.0000
+{txt}
+{com}. 
+. /*
+> Two-sample t test with equal variances
+> ------------------------------------------------------------------------------
+>    Group |     Obs        Mean    Std. Err.   Std. Dev.   [95% Conf. Interval]
+> ---------+--------------------------------------------------------------------
+>     Male | 149,397    25.35953    .0392126    15.15643    25.28267    25.43638
+>   Female |  53,686    27.55651    .0617796    14.31448    27.43543     27.6776
+> ---------+--------------------------------------------------------------------
+> combined | 203,083    25.94031    .0332185    14.96982     25.8752    26.00542
+> ---------+--------------------------------------------------------------------
+>     diff |           -2.196989    .0751695               -2.344319   -2.049658
+> ------------------------------------------------------------------------------
+>     diff = mean(Male) - mean(Female)                              t = -29.2271
+> Ho: diff = 0                                     degrees of freedom =   203081
+> 
+>     Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+>  Pr(T < t) = 0.0000         Pr(|T| > |t|) = 0.0000          Pr(T > t) = 1.0000
+> */
+. 
+. 
+. **********************************Q-4*******************************************
+. 
+. 
+. * genrating employment indicator 
+. restore
+{txt}
+{com}. gen employed = 0 
+{txt}
+{com}. replace employed = 1 if pri_activity_status >= 11 & pri_activity_status <= 51
+{txt}(203,083 real changes made)
+
+{com}. 
+. * Employemnt rate by gender
+. bys sex : sum employed [aw=weight] 
+
+{txt}{hline}
+-> sex = Male
+
+    Variable {c |}     Obs      Weight        Mean   Std. Dev.       Min        Max
+{hline 13}{c +}{hline 65}
+{space 4}employed {c |}{res} 184,180   291374331    .8374176   .3689853          0          1
+
+{txt}{hline}
+-> sex = Female
+
+    Variable {c |}     Obs      Weight        Mean   Std. Dev.       Min        Max
+{hline 13}{c +}{hline 65}
+{space 4}employed {c |}{res} 178,786   281794342    .3312209   .4706537          0          1
+
+{txt}
+{com}. 
+. preserve 
+{txt}
+{com}.         
+.         collapse (mean) employed [aw=weight] , by(decile sex) 
+{txt}
+{com}.         
+. * Generating graph for e employment rate by principalstatusfor 
+. * females(aged 15-59) differ across expenditure
+. * deciles
+.         
+.         twoway (connected employed decile if sex ==1, lcolor(dknavy) lwidth(medthick) mcolor(dknavy) msymbol(T)) /// male
+>        (connected employed decile if sex ==2,  lcolor(cranberry) lwidth(medthick) mcolor(cranberry) msymbol(O)), /// female
+>        xtitle("Deciles")  ///
+>            xlab(1(1)10) ///
+>            ytitle("Mean employed") ///
+>            legend(order(1 "Male" 2 "Female") c(2) position(6)) ///
+>            graphr(c(white)) ///
+>            note("Sample is restricted for age 15 - 59 years; Source: NSS EUS 2004.")
+{res}{txt}
+{com}.            
+. /*
+> 
+> The graph shows as the employment rate decreases as the women's wealth
+> increases which I understand rich women does not work often and vice versa
+> and the gap between male and female also increases as we move along the decile.
+> 
+> */
+. 
+.            graph export "$nss/excercise_4 graph.pdf", as(pdf) replace
+{txt}(file C:\Users\HP\Desktop\Stata Pract\Tanu test\NSS DATA\data/excercise_4 graph.pdf written in PDF format)
+
+{com}. 
+. restore 
+{txt}
+{com}. 
+. 
+. *********************************Q-5********************************************
+. 
+. 
+. * Graph of principal employement rate by caste and gender 
+. 
+. label define social_group 1 "ST" 2 "SC" 3 "OBC" 9 "Others"
+{txt}
+{com}. label values social_group social_group
+{txt}
+{com}. 
+. * Normal Stata version
+. graph bar (mean) employed [aw=weight] , over(sex) over(social_group) /// 
+>                                  asyvars graphr(c(white))
+{res}{txt}
+{com}. * Colourful one
+. graph bar (mean) employed [aw=weight], over(sex) over(social_group) ///
+>    asyvars graphr(c(white)) bar(1, fcolor(blue) lcolor(blue)) bar(2, fcolor(red) lcolor(red)) scheme(vg_s2c)
+{res}{txt}
+{com}. 
+. 
+. graph export "$nss/excercise_5 graph.pdf", as(pdf) replace
+{txt}(file C:\Users\HP\Desktop\Stata Pract\Tanu test\NSS DATA\data/excercise_5 graph.pdf written in PDF format)
+
+{com}. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\HP\Desktop\Stata Pract\Tanu test\Alam new log file.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 5 Dec 2023, 20:57:01
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
